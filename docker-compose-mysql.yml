@@ -1,0 +1,42 @@
+services:
+  webapp:
+    image: webapp
+    build: .
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+        restart: true
+    environment:
+      - MYSQL_URL=mysql://$MYSQLDB_USER:$MYSQLDB_ROOT_PASSWORD@mysqldb:3306/$MYSQLDB_DATABASE
+    ports:
+      - 3000:3000
+    volumes:
+      - ./database/:/database
+ 
+  mysqldb:
+    image: mysql:8.4
+    container_name: mysql-db-mlops-dockerlab-webapp
+    env_file: .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+    ports:
+      - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    volumes:
+      - mlops-dockerlab-mysql:/var/lib/mysql
+  
+  test:
+    image: webapp
+    depends_on:
+      - webapp
+      - mysqldb
+    environment:
+      - API_URL=http://webapp:3000
+    command: yarn test
+
+volumes:
+  mlops-dockerlab-mysql:

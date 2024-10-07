@@ -1,0 +1,11 @@
+FROM node:20
+
+# Copy the contents from local folder to the root of the container.
+COPY . .
+
+RUN yarn install --frozen-lockfile
+
+
+CMD ["yarn", "start"]
+
+EXPOSE 3000
