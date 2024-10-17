@@ -1,4 +1,5 @@
 {
+  
   "name": "demo-webapp",
   "version": "1.0.0",
   "description": "Demo webapp for the course Machine Learning Operations at HOGENT",
@@ -26,5 +27,8 @@
     "eslint": "^9.8.0",
     "mocha": "^10.7.0",
     "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": "20.18"
   }
 }
