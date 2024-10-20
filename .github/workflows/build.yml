@@ -22,6 +22,9 @@ jobs:
       - name: Lint the code
         run: yarn lint
 
+      - name: Test the code
+        run: yarn test
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
