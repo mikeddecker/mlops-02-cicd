@@ -13,3 +13,5 @@ jobs:
       - name: Read node from package.json
         uses: josepdecid/get-nodejs-version@v1.1.0
         id: get-node-version
+      - name: Run yarn install
+        run: yarn install
