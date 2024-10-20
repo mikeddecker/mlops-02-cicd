@@ -32,5 +32,4 @@ Run the tests:
 yarn test
 ```
 
-Depandabot wil auto update dependancies?
-Another test.
+remove this at demo
