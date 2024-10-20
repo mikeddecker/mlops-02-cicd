@@ -10,8 +10,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Read node from package.json
-        uses: josepdecid/get-nodejs-version@v1.1.0
-        id: get-node-version
+      - name: Get simple/minimal NodeJS
+        uses: dreamcodez/dead-simple-nodejs@1
+        with:
+          NODE_VERSION: 20.18
       - name: Run yarn install
         run: yarn install
