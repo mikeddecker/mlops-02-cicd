@@ -5,6 +5,9 @@
     "node": true,
     "mocha": true
   },
+  "files" : [
+    "**/*.js"
+  ],
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": 12,
