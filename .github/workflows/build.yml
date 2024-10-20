@@ -13,6 +13,6 @@ jobs:
       - name: Get simple/minimal NodeJS
         uses: dreamcodez/dead-simple-nodejs@1
         with:
-          NODE_VERSION: 20.18
+          NODE_VERSION: 20
       - name: Run yarn install
         run: yarn install
