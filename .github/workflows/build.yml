@@ -19,9 +19,6 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: copy .env.workflow to .env
-        run: cp .env.workflow .env
-      
       - name: Setup node v20
         uses: actions/setup-node@v4
         with:
@@ -51,6 +48,9 @@ jobs:
           push: true
           tags: mikededeckerstudent/webapp:latest
 
+      - name: copy .env.workflow to .env
+        run: cp .env.workflow .env
+      
       - name: run docker compose up
         run: docker compose up -d
 
