@@ -54,8 +54,13 @@ jobs:
       - name: run docker compose up
         run: docker compose up -d
 
+      - name: compose test
+        run: docker compose run test
+
       # - name: Extra yarn test (although used in docker compose)
       #   run: yarn test
+      - name: run test
+        run: yarn test
 
       - name: Close webapp service # Expecting the service 
         run: docker compose down
