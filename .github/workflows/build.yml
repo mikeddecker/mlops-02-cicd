@@ -48,11 +48,11 @@ jobs:
           push: true
           tags: mikededeckerstudent/webapp:latest
 
-      - name: run docker-compose
-        uses: sudo-bot/action-docker-compose@latest
-        with:
-          # https://docs.docker.com/compose/reference/overview/
-          cli-args: "up"
+      - name: run docker compose up
+        run: docker compose up -d
 
-      - name: Extra yarn test
-        run: yarn test
+      # - name: Extra yarn test (although used in docker compose)
+      #   run: yarn test
+
+      - name: Close webapp service # Expecting the service 
+        run: docker compose down
