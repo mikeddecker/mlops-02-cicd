@@ -31,3 +31,5 @@ Run the tests:
 ```console
 yarn test
 ```
+
+Depandabot wil auto update dependancies?
