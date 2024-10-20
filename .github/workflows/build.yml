@@ -18,6 +18,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+
+      - name: copy .env.workflow to .env
+        run: cp .env.workflow .env
       
       - name: Setup node v20
         uses: actions/setup-node@v4
