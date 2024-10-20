@@ -61,6 +61,3 @@ jobs:
       #   run: yarn test
       - name: run test
         run: yarn test
-
-      - name: Close webapp service # Expecting the service 
-        run: docker compose down
