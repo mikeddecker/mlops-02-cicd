@@ -22,9 +22,6 @@ jobs:
       - name: Lint the code
         run: yarn lint
 
-      - name: Test the code
-        run: yarn test
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -42,3 +39,12 @@ jobs:
         with:
           push: true
           tags: mikededeckerstudent/webapp:latest
+
+      - name: run docker-compose
+        uses: sudo-bot/action-docker-compose@latest
+        with:
+          # https://docs.docker.com/compose/reference/overview/
+          cli-args: "up"
+
+      - name: Extra yarn test
+        run: yarn test
