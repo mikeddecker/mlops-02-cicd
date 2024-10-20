@@ -10,9 +10,11 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Get simple/minimal NodeJS
-        uses: dreamcodez/dead-simple-nodejs@1
+      
+      - name: Setup node v20
+        uses: actions/setup-node@v4
         with:
-          NODE_VERSION: 20
+          node-version: 20
+      
       - name: Run yarn install
         run: yarn install
