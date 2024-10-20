@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:23-alpine
 
 # Copy the contents from local folder to the root of the container.
 COPY package.json .
