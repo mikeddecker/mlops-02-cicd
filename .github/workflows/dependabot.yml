@@ -1,7 +1,12 @@
 # Basic `dependabot.yml` file with
 # minimum configuration for two package managers
-
+---
 version: 2
+name: Dependabot
+on:
+  push:
+    branches:
+      - main
 updates:
   # Enable version updates for npm
   - package-ecosystem: ""
